@@ -313,7 +313,6 @@ window.require.define({"views/stalls": function(exports, require, module) {
     StallView.prototype.template = require("./templates/stall");
 
     StallView.prototype.render = function() {
-      console.log(this.model.toJSON());
       ($(this.el)).html(this.template(this.model.toJSON()));
       return this;
     };

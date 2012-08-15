@@ -22,7 +22,6 @@ exports.StallView = class StallView extends Backbone.View
     tagName: "li"
     template: require "./templates/stall"
     render: =>
-        console.log @model.toJSON()
         ($ @el).html (@template @model.toJSON())
         return this
 
