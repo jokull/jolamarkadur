@@ -11,7 +11,7 @@ app = Flask(__name__, static_folder='public')
 
 app.config.update(
     DEBUG=os.environ.get('DEBUG') == 'true',
-    SQLALCHEMY_DATABASE_URI=os.environ['HEROKU_POSTGRESQL_SILVER'],
+    SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
     HTML_ROOT='public',
 )
 
