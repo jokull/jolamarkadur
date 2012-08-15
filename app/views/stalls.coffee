@@ -36,3 +36,4 @@ exports.StallForm = class StallForm extends FormView
         "submit": "submit"
     created: (data) =>
         Farm.stallsView.add (new Backbone.Model data)
+        ($ @el).fadeOut("slow").html("Takk!").fadeIn()

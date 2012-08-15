@@ -48,7 +48,7 @@ def index():
 
 @app.route('/stalls', methods=['GET'])
 def stalls():
-    stalls = Stall.query.order_by(Stall.created.desc())
+    stalls = Stall.query.order_by(Stall.created)
     return jsonify(stalls=[s.json for s in stalls])
 
 
@@ -61,9 +61,13 @@ def stalls_add():
             email=request.json['email'],
             name=request.json['name'],
         )
-    except KeyError, e:
-        print e
-        abort(make_response(unicode(e), 422, {}))
+        assert stall.description, {'description': 'Lýsingu vantar'}
+        assert stall.email, {'email': 'Netfang vantar'}
+        assert stall.name, {'name': 'Nafn vantar'}
+    except KeyError, err:
+        abort(make_response(jsonify(errors=err), 422, {}))
+    except AssertionError, err:
+        abort(make_response(jsonify(errors=err.message), 422, {}))
 
     db.session.add(stall)
     db.session.commit()

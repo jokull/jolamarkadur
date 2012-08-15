@@ -348,7 +348,8 @@ window.require.define({"views/stalls": function(exports, require, module) {
     };
 
     StallForm.prototype.created = function(data) {
-      return Farm.stallsView.add(new Backbone.Model(data));
+      Farm.stallsView.add(new Backbone.Model(data));
+      return ($(this.el)).fadeOut("slow").html("Takk!").fadeIn();
     };
 
     return StallForm;
