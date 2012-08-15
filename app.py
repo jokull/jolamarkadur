@@ -7,15 +7,20 @@ from flask import Flask, abort, request, redirect, jsonify, make_response
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 
+from raven.contrib.flask import Sentry
+
+
 app = Flask(__name__, static_folder='public')
 
 app.config.update(
     DEBUG=os.environ.get('DEBUG') == 'true',
     SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
+    SENTRY_DSN='https://8934ede82ce84c22a1b4d1f2d0707bfc:1c5fdc748a52486fafcab1b28d3e550f@app.getsentry.com/2035',
     HTML_ROOT='public',
 )
 
 db = SQLAlchemy(app)
+sentry = Sentry(app)
 
 
 class Stall(db.Model):
