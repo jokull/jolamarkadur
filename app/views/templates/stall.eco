@@ -1,0 +1,4 @@
+<p><%= @description %></p>
+<% if @entity == "business": %>
+    <cite><%= @name %></cite>
+<% end %>

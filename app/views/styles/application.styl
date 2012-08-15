@@ -1,0 +1,100 @@
+// nib is a powerful lib for stylus that provides cross-browser css3 mixins.
+@import 'nib'
+
+@import '_base'
+@import '_ui'
+
+// Import your styles here
+
+@import '_states'
+@import '_layout'
+@import '_responsive'
+
+body.application
+  .container
+    max-width 600px
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+  p
+  label
+  input
+  button
+    font-family 'Averia Serif Libre', cursive
+    font-weight 400
+
+
+  h1
+    margin 20px 0
+    font-size 30pt
+    line-height 36pt
+  h4
+    margin 10px 0
+
+  form
+    margin 20px 0
+    padding 20px
+    border 1px solid #CCC
+    label
+    input
+      font-size 12pt
+    input
+      height 30px
+    label
+      font-weight 700
+      span
+        color #CCC
+        font-weight 400
+    input[type=radio]
+      height 14px
+    textarea
+      width 100%
+    .form-actions
+      border 0
+      background 0
+      padding 0
+      margin 30px 0 0
+      input
+      button
+        width 40%
+        font-size 20pt
+        background #666
+    .control-entity
+      margin 20px 0
+
+  .signups
+    padding 30px 0
+    margin-bottom 100px
+    img
+      margin 0 auto
+      display block
+    h3
+      text-align center
+      margin-bottom 30px
+      font-weight 700
+      font-size 20pt
+    ul
+      margin 0
+      li
+        margin 10px 0 0
+        list-style none
+        text-align center
+        p
+          font-style italic
+          display inline-block
+          font-size 12pt
+          &:before
+            content: "„"
+          &:after
+            content: "“"
+        cite
+          display inline-block
+          &:before
+            content: " – "
+          color: #CCC
+
+
+
